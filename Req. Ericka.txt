@@ -1,0 +1,47 @@
+Analisis & Levantamiento de reqs. del proyecto Ericka
+	Punto de venta
+	Adm de Reparaciones
+	
+Modulo Punto de venta
+
+	Mantenimiento:
+ 
+	  -producto(id, nombre, precio) 
+	  -compra 
+		compra_master(idCompra, idSuplidor, fecha)
+		compra_detalle(idProducto, cantidad, costo, impuesto, descuento)
+	  -venta (Facturas)
+		factura_master(idFactura, idCliente, fecha)
+		factura_detalle(idProducto, cantidad, precio, impuesto, descuento)
+	  -efectivo
+		entrada(idEntrada, monto, descripcion)
+		salida(idSalida, monto, descripcion)
+			  	
+	  -devolucion (idDevolucion, idProducto, monto)		
+	  -cliente (idCliente, nombre, apellido, telefono, celular, idDireccion)
+	  -direccion(idDireccion, idSector, idCiudad)
+	  -sector(idSector, nombre)
+	  -ciudad(idCiudad, nombre)
+	
+Reportes:
+	  
+	  -Balance General
+	  -Diario General
+
+Otras caracteristicas:
+
+	-Registrar Entradas y salidas de efectivo
+	-Adm de roles de usuarios
+
+Modulo Reparaciones
+	
+	Mantenimiento:
+	 
+	 -Reparacion (idReparacion, pieza, problema)
+	 -Tecnico(idTecnico,nombre, apellido, telefono, celular, idDireccion)
+
+Para Investigar:
+
+	Transacciones contables del diario general
+	Procesamiento de Devoluciones
+	Cuadre de caja	
