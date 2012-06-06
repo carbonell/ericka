@@ -110,12 +110,14 @@ CREATE TABLE `moneyoutput` (
 DROP TABLE IF EXISTS `product`;
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `price` decimal(12,2) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `price` DECIMAL(12,2) DEFAULT NULL,
+  `quantity` INT(11) DEFAULT NULL,
+  `category` INT(11) NOT NULL,
+  FOREIGN KEY (`category`) REFERENCES `Category` (`id`),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
 
 /*Table structure for table `productreturn` */
 
@@ -162,11 +164,11 @@ CREATE TABLE `purchasedetail` (
   CONSTRAINT `purchasedetail_ibfk_2` FOREIGN KEY (`product`) REFERENCES `product` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `repairs` */
+/*Table structure for table `repairment` */
 
-DROP TABLE IF EXISTS `repairs`;
+DROP TABLE IF EXISTS `repairment`;
 
-CREATE TABLE `repairs` (
+CREATE TABLE `repairment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product` int(11) NOT NULL,
   `problem` varchar(255) DEFAULT NULL,

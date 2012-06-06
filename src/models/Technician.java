@@ -1,7 +1,7 @@
 package models;
 
-public class Customer {
-		
+public class Technician {
+	
 	public int getId() {
 		return id;
 	}
