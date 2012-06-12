@@ -81,10 +81,10 @@ public class Smartphone extends Product {
 	public String toString() {
 		return this.getName();
 	}
-	public int getID() {
+	public int getId() {
 		return id;
 	}
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public double getPrice() {

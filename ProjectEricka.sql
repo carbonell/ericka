@@ -95,7 +95,7 @@ CREATE TABLE `laptop` (
   `MediaCardReader` varchar(255) DEFAULT NULL,
   `OtherFeatures` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `laptoppurchasedetail` */
 
@@ -224,7 +224,7 @@ CREATE TABLE `smartphone` (
   `RAM` varchar(255) DEFAULT NULL,
   `OtherFeatures` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `smartphonechange` */
 
@@ -326,6 +326,8 @@ CREATE TABLE `technician` (
   `phone` varchar(13) DEFAULT NULL,
   `cellphone` varchar(13) DEFAULT NULL,
   `address` int(11) NOT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `address` (`address`),
   CONSTRAINT `technician_ibfk_1` FOREIGN KEY (`address`) REFERENCES `address` (`id`)

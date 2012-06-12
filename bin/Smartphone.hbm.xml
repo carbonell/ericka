@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 06/11/2012 10:25:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 06/11/2012 11:20:21 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="models.Smartphone" table="SMARTPHONE">
         <id name="id" type="int" access="field">
@@ -60,25 +60,25 @@
             <column name="OTHERFEATURES" />
         </property>
         <property name="touchcapable" type="boolean">
-            <column name="TOUCHCAPABLE" />
+            <column name="TOUCHCAPABILITY" />
         </property>
         <property name="gpscapable" type="boolean">
-            <column name="GPSCAPABLE" />
+            <column name="GPSCAPABILITY" />
         </property>
         <property name="wificapable" type="boolean">
-            <column name="WIFICAPABLE" />
+            <column name="WIFICAPABILITY" />
         </property>
         <property name="bluetoothcapable" type="boolean">
-            <column name="BLUETOOTHCAPABLE" />
+            <column name="BLUETOOTHCAPABILITY" />
         </property>
         <property name="infraredcapable" type="boolean">
-            <column name="INFRAREDCAPABLE" />
+            <column name="INFRAREDCAPABILITY" />
         </property>
         <property name="qwertykeyboard" type="boolean">
             <column name="QWERTYKEYBOARD" />
         </property>
         <property name="flashcapable" type="boolean">
-            <column name="FLASHCAPABLE" />
+            <column name="FLASHCAPABILITY" />
         </property>
     </class>
 </hibernate-mapping>

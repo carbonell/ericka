@@ -1,6 +1,6 @@
 package controllers;
 
-import models.Smartphone;
+import models.Laptop;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,11 +9,31 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-public class SmartphoneController {
+public class LaptopController {
 	private static SessionFactory sf;
 	private static ServiceRegistry serviceRegistry;
 
-	public void saveSmartphone(Smartphone smartphone) {
+	public void saveLaptop(Laptop laptop){
+		Session session = null;
+		
+		try 
+		{
+			configureSession();
+			session = sf.openSession();
+	
+			Transaction tx = session.beginTransaction();
+			
+			session.save(laptop);
+			tx.commit();
+			System.out.println("Done");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			session.close();
+		}
+	}
+	
+	public void updateLaptop(Laptop laptop) {
 		Session session = null;
 		
 		try 
@@ -24,8 +44,7 @@ public class SmartphoneController {
 	
 			Transaction tx = session.beginTransaction();
 			
-			session.save(smartphone);
-			session.flush();
+			session.update(laptop);
 			tx.commit();
 			System.out.println("Done");
 		} catch (Exception e) {
@@ -35,40 +54,18 @@ public class SmartphoneController {
 		}
 	}
 	
-	public void updateSmartphone(Smartphone updatedSmartphone){
+	public void deleteLaptop(Laptop laptop) {
 		Session session = null;
 		
 		try 
 		{
 			configureSession();
+			
 			session = sf.openSession();
 	
 			Transaction tx = session.beginTransaction();
 			
-			session.update(updatedSmartphone);
-			
-			tx.commit();
-			
-			System.out.println("Done");
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
-	}
-	
-	public void deleteSmartphone(Smartphone smartphone) {
-		Session session = null;
-		
-		try 
-		{
-			configureSession();
-			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
-			session.delete(smartphone);
+			session.delete(laptop);
 			tx.commit();
 			System.out.println("Done");
 		} catch (Exception e) {
@@ -77,12 +74,12 @@ public class SmartphoneController {
 			session.close();
 		}
 	}
-	
+
 	private void configureSession() throws ExceptionInInitializerError {
 		try
 		{
 			Configuration cfg = new Configuration().addResource(
-			"Smartphone.hbm.xml").configure();
+			"Laptop.hbm.xml").configure();
 			serviceRegistry = new ServiceRegistryBuilder().applySettings(
 			cfg.getProperties()).buildServiceRegistry();
 			sf = cfg.buildSessionFactory(serviceRegistry);

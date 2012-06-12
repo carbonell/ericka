@@ -5,7 +5,7 @@ public class Laptop extends Product {
 	public Laptop() {
 	}
 	
-	public Laptop(int id, double price, int stock, Laptop laptop, String brand, String model, String color,
+	public Laptop(int id, double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
@@ -13,7 +13,6 @@ public class Laptop extends Product {
 		this.id = id;
 		this.price = price;
 		this.stock = stock;
-		this.laptop = laptop;
 		this.brand = brand;
 		this.model = model;
 		this.color = color;
@@ -30,7 +29,7 @@ public class Laptop extends Product {
 		this.otherFeatures = otherFeatures;
 	}
 	
-	public Laptop(double price, int stock, Laptop laptop, String brand, String model, String color,
+	public Laptop(double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
@@ -38,7 +37,6 @@ public class Laptop extends Product {
 		this.id = 0;
 		this.price = price;
 		this.stock = stock;
-		this.laptop = laptop;
 		this.brand = brand;
 		this.model = model;
 		this.color = color;
@@ -79,14 +77,6 @@ public class Laptop extends Product {
 		this.stock = stock;
 	}
 	
-	public Laptop getLaptop() {
-		return laptop;
-	}
-
-	public void setLaptop(Laptop laptop) {
-		this.laptop = laptop;
-	}
-
 	public String getBrand() {
 		return brand;
 	}
@@ -199,7 +189,6 @@ public class Laptop extends Product {
 		this.otherFeatures = otherFeatures;
 	}
 	
-	private Laptop laptop;
 	private String brand;
 	private String model;
 	private String color;
