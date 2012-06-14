@@ -6,23 +6,25 @@ public class Address {
 	}
 	
 	public Address(int id, String addressDetail, String country, String city,
-			String sector) {
+			String sector, Technician technician) {
 		super();
 		this.id = id;
 		this.addressDetail = addressDetail;
 		this.country = country;
 		this.city = city;
 		this.sector = sector;
+		this.technician = technician;
 	}
 
 	public Address(String addressDetail, String country, String city,
-			String sector) {
+			String sector, Technician technician) {
 		super();
 		this.id = 0;
 		this.addressDetail = addressDetail;
 		this.country = country;
 		this.city = city;
 		this.sector = sector;
+		this.technician = technician;
 	}
 
 	public int getId() {
@@ -55,10 +57,17 @@ public class Address {
 	public void setSector(String sector) {
 		this.sector = sector;
 	}
-	
+	public Technician getTechnician() {
+		return technician;
+	}
+	public void setTechnician(Technician technician) {
+		this.technician = technician;
+	}
+
 	private int id;
 	private String addressDetail;
 	private String country;
 	private String city;
 	private String sector;
+	private Technician technician;
 }

@@ -6,7 +6,7 @@ public class Technician {
 	}
 	
 	public Technician(int id, String firstName, String firstMidName,
-			String lastName, String phone, String cellphone, Address address) {
+			String lastName, String phone, String cellphone, Address address, String nickname, String password) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -15,10 +15,12 @@ public class Technician {
 		this.phone = phone;
 		this.cellphone = cellphone;
 		this.address = address;
+		this.nickName = nickname;
+		this.password = password;
 	}
 
 	public Technician(String firstName, String firstMidName, String lastName,
-			String phone, String cellphone, Address address) {
+			String phone, String cellphone, Address address, String nickname, String password) {
 		super();
 		this.id = 0;
 		this.firstName = firstName;
@@ -27,6 +29,8 @@ public class Technician {
 		this.phone = phone;
 		this.cellphone = cellphone;
 		this.address = address;
+		this.nickName = nickname;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -71,7 +75,22 @@ public class Technician {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	private int id;
 	private String firstName;
 	private String firstMidName;
@@ -79,4 +98,6 @@ public class Technician {
 	private String phone;
 	private String cellphone;
 	private Address address;
+	private String nickName;
+	private String password;
 }
