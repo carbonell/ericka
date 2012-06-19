@@ -1,10 +1,9 @@
 package controllers;
 
-import models.Laptop;
+import models.Person;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
@@ -12,20 +11,12 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class LaptopController {
 	private static SessionFactory sf;
 	private static ServiceRegistry serviceRegistry;
-
-	public void saveLaptop(Laptop laptop){
-		Session session = null;
-		
-		try 
-		{
+	private Session session;
+	public void saveLaptop(Person laptop){
+		try {
 			configureSession();
 			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
 			session.save(laptop);
-			tx.commit();
-			System.out.println("Done");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -33,20 +24,13 @@ public class LaptopController {
 		}
 	}
 	
-	public void updateLaptop(Laptop laptop) {
+	public void updateLaptop(Person laptop) {
 		Session session = null;
 		
-		try 
-		{
+		try {
 			configureSession();
-			
 			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
 			session.update(laptop);
-			tx.commit();
-			System.out.println("Done");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -54,20 +38,13 @@ public class LaptopController {
 		}
 	}
 	
-	public void deleteLaptop(Laptop laptop) {
+	public void deleteLaptop(Person laptop) {
 		Session session = null;
 		
-		try 
-		{
+		try {
 			configureSession();
-			
 			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
 			session.delete(laptop);
-			tx.commit();
-			System.out.println("Done");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -76,12 +53,15 @@ public class LaptopController {
 	}
 
 	private void configureSession() throws ExceptionInInitializerError {
-		try
-		{
-			Configuration cfg = new Configuration().addResource(
-			"Laptop.hbm.xml").configure();
-			serviceRegistry = new ServiceRegistryBuilder().applySettings(
-			cfg.getProperties()).buildServiceRegistry();
+		try {
+			Configuration cfg = new Configuration()
+				.addResource("Laptop.hbm.xml")
+				.configure();
+			
+			serviceRegistry = new ServiceRegistryBuilder()
+				.applySettings(cfg.getProperties())
+				.buildServiceRegistry();
+			
 			sf = cfg.buildSessionFactory(serviceRegistry);
 		}
 		catch (Throwable ex)

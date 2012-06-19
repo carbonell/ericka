@@ -4,7 +4,6 @@ package controllers;
 //import models.Smartphone;
 
 public class Start {
-
 	public static void main(String[] args) {
 		/*
 		Smartphone smartphone = new Smartphone(13500.00,52,"Blackberry","Bold 9700","Bold 3","Negro",

@@ -9,7 +9,6 @@ import models.Technician;
 import views.LoginView;
 
 public class LoginController {
-	
 	public LoginController(){
 		loginView = new LoginView(this);
 		technicianController = new TechnicianController();

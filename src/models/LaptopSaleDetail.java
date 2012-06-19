@@ -5,7 +5,7 @@ public class LaptopSaleDetail {
 	public LaptopSaleDetail() {
 	}
 	
-	public LaptopSaleDetail(int id, ProductSale productSale, Laptop laptop,
+	public LaptopSaleDetail(int id, ProductSale productSale, Person laptop,
 			int quantity, double price, double taxes, double discount) {
 		super();
 		this.id = id;
@@ -17,7 +17,7 @@ public class LaptopSaleDetail {
 		this.discount = discount;
 	}
 
-	public LaptopSaleDetail(ProductSale productSale, Laptop laptop,
+	public LaptopSaleDetail(ProductSale productSale, Person laptop,
 			int quantity, double price, double taxes, double discount) {
 		super();
 		this.id = 0;
@@ -29,7 +29,7 @@ public class LaptopSaleDetail {
 		this.discount = discount;
 	}
 
-	public LaptopSaleDetail(Laptop laptop, int quantity, double price,
+	public LaptopSaleDetail(Person laptop, int quantity, double price,
 			double taxes, double discount) {
 		super();
 		this.id = 0;
@@ -52,10 +52,10 @@ public class LaptopSaleDetail {
 	public void setProductSale(ProductSale productSale) {
 		this.productSale = productSale;
 	}
-	public Laptop getLaptop() {
+	public Person getLaptop() {
 		return laptop;
 	}
-	public void setLaptop(Laptop laptop) {
+	public void setLaptop(Person laptop) {
 		this.laptop = laptop;
 	}
 	public int getQuantity() {
@@ -85,7 +85,7 @@ public class LaptopSaleDetail {
 
 	private int id;
 	private ProductSale productSale;
-	private Laptop laptop;
+	private Person laptop;
 	private int quantity;
 	private double price;
 	private double taxes;

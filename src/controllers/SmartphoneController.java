@@ -4,7 +4,6 @@ import models.Smartphone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
@@ -16,18 +15,10 @@ public class SmartphoneController {
 	public void saveSmartphone(Smartphone smartphone) {
 		Session session = null;
 		
-		try 
-		{
+		try {
 			configureSession();
-			
 			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
 			session.save(smartphone);
-			session.flush();
-			tx.commit();
-			System.out.println("Done");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -38,19 +29,10 @@ public class SmartphoneController {
 	public void updateSmartphone(Smartphone updatedSmartphone){
 		Session session = null;
 		
-		try 
-		{
+		try {
 			configureSession();
 			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
 			session.update(updatedSmartphone);
-			
-			tx.commit();
-			
-			System.out.println("Done");
-			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -61,16 +43,10 @@ public class SmartphoneController {
 	public void deleteSmartphone(Smartphone smartphone) {
 		Session session = null;
 		
-		try 
-		{
+		try {
 			configureSession();
-			session = sf.openSession();
-	
-			Transaction tx = session.beginTransaction();
-			
+			session = sf.openSession();			
 			session.delete(smartphone);
-			tx.commit();
-			System.out.println("Done");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -81,10 +57,14 @@ public class SmartphoneController {
 	private void configureSession() throws ExceptionInInitializerError {
 		try
 		{
-			Configuration cfg = new Configuration().addResource(
-			"Smartphone.hbm.xml").configure();
-			serviceRegistry = new ServiceRegistryBuilder().applySettings(
-			cfg.getProperties()).buildServiceRegistry();
+			Configuration cfg = new Configuration()
+				.addResource("Smartphone.hbm.xml")
+				.configure();
+			
+			serviceRegistry = new ServiceRegistryBuilder()
+				.applySettings(cfg.getProperties())
+				.buildServiceRegistry();
+			
 			sf = cfg.buildSessionFactory(serviceRegistry);
 		}
 		catch (Throwable ex)

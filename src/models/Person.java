@@ -1,11 +1,11 @@
 package models;
 
-public class Laptop extends Product {
+public class Person extends Product {
 	
-	public Laptop() {
+	public Person() {
 	}
 	
-	public Laptop(int id, double price, int stock, String brand, String model, String color,
+	public Person(int id, double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
@@ -29,7 +29,7 @@ public class Laptop extends Product {
 		this.otherFeatures = otherFeatures;
 	}
 	
-	public Laptop(double price, int stock, String brand, String model, String color,
+	public Person(double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
