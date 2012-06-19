@@ -1,73 +1,41 @@
 package controllers;
 
-import models.Person;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import models.Laptop;
 
 public class LaptopController {
-	private static SessionFactory sf;
-	private static ServiceRegistry serviceRegistry;
-	private Session session;
-	public void saveLaptop(Person laptop){
+	HbnPersistanceSessionManager pm = HbnPersistanceSessionManager.getInstance();
+	
+	public Laptop getSingleLaptop (long id) {
+		Laptop l = new Laptop();
 		try {
-			configureSession();
-			session = sf.openSession();
-			session.save(laptop);
+			l = (Laptop) pm.getSessionInstance().load(Laptop.class, id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} finally {
-			session.close();
+		}
+		return l;
+	}
+	
+	public void saveLaptop(Laptop laptop){
+		try {
+			pm.getSessionInstance().save(laptop);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
-	public void updateLaptop(Person laptop) {
-		Session session = null;
-		
+	public void updateLaptop(Laptop laptop) {		
 		try {
-			configureSession();
-			session = sf.openSession();
-			session.update(laptop);
+			pm.getSessionInstance().update(laptop);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} finally {
-			session.close();
 		}
 	}
 	
-	public void deleteLaptop(Person laptop) {
-		Session session = null;
-		
+	public void deleteLaptop(Laptop laptop) {
 		try {
-			configureSession();
-			session = sf.openSession();
-			session.delete(laptop);
+			pm.getSessionInstance().delete(laptop);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
-	}
-
-	private void configureSession() throws ExceptionInInitializerError {
-		try {
-			Configuration cfg = new Configuration()
-				.addResource("Laptop.hbm.xml")
-				.configure();
-			
-			serviceRegistry = new ServiceRegistryBuilder()
-				.applySettings(cfg.getProperties())
-				.buildServiceRegistry();
-			
-			sf = cfg.buildSessionFactory(serviceRegistry);
-		}
-		catch (Throwable ex)
-		{
-			System.err.println("Failed to create sessionFactory object."+ ex);
-			throw new ExceptionInInitializerError(ex);
 		}
 	}
 }

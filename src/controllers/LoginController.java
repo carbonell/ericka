@@ -5,13 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import models.Technician;
 import views.LoginView;
 
 public class LoginController {
 	public LoginController(){
 		loginView = new LoginView(this);
-		technicianController = new TechnicianController();
 		
 		loginView.getBtnSalir().addActionListener(new ActionListener() {
 			@Override
@@ -38,18 +36,17 @@ public class LoginController {
 	private boolean validarLogin(String user, char[] password) {
 		boolean valid = true;
 		
-		for(Technician t : technicianController.getTechnicians()) {
-			if(user.equals(t.getNickName())) {
-				int index = 0;
-				for(char i : password){
-					if(i != t.getPassword().toCharArray()[index]) { valid = false; }
-					index++;
-				}
-			}
-		}
+//		for(Technician t : technicianController.getTechnicians()) {
+//			if(user.equals(t.getNickName())) {
+//				int index = 0;
+//				for(char i : password){
+//					if(i != t.getPassword().toCharArray()[index]) { valid = false; }
+//					index++;
+//				}
+//			}
+//		}
 		return valid;
 	}
 	
 	private LoginView loginView;
-	private TechnicianController technicianController;
 }

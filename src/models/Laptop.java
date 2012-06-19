@@ -1,11 +1,15 @@
 package models;
 
-public class Person extends Product {
+import javax.persistence.*;
+
+@Entity
+@Table(name="laptop")
+public class Laptop implements Product {
 	
-	public Person() {
+	public Laptop() {
 	}
 	
-	public Person(int id, double price, int stock, String brand, String model, String color,
+	public Laptop(long id, double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
@@ -29,7 +33,7 @@ public class Person extends Product {
 		this.otherFeatures = otherFeatures;
 	}
 	
-	public Person(double price, int stock, String brand, String model, String color,
+	public Laptop(double price, int stock, String brand, String model, String color,
 			String processor, String ram, String hdd, String os, String screen,
 			String videoCard, boolean hasCamera, String wirelessConectivity,
 			String mediaRecording, String mediaCardReading, String otherFeatures) {
@@ -53,142 +57,163 @@ public class Person extends Product {
 		this.otherFeatures = otherFeatures;
 	}
 	
-	public int getId() {
+	@Id
+	@GeneratedValue
+	public long getId() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
+	@Column
 	public double getPrice() {
 		return price;
 	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
+	
+	@Column
 	public int getStock() {
 		return stock;
 	}
+	
+	@Column
+	public String getBrand() {
+		return brand;
+	}
+	
+	@Column
+	public String getModel() {
+		return model;
+	}
+	
+	@Column
+	public String getColor() {
+		return color;
+	}
 
+	@Column
+	public String getProcessor() {
+		return processor;
+	}
+
+	@Column
+	public String getRam() {
+		return ram;
+	}
+
+	@Column
+	public String getHdd() {
+		return hdd;
+	}
+
+	@Column
+	public String getOs() {
+		return os;
+	}
+
+	@Column
+	public String getScreen() {
+		return screen;
+	}
+
+	@Column
+	public String getVideoCard() {
+		return videoCard;
+	}
+
+	@Column(name="builtincamera")
+	public boolean isHasCamera() {
+		return hasCamera;
+	}
+
+	@Column
+	public String getWirelessConectivity() {
+		return wirelessConectivity;
+	}
+
+	@Column
+	public String getMediaRecording() {
+		return mediaRecording;
+	}
+
+	@Column(name="mediacardreader")
+	public String getMediaCardReading() {
+		return mediaCardReading;
+	}
+
+	@Column
+	public String getOtherFeatures() {
+		return otherFeatures;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
 	
-	public String getBrand() {
-		return brand;
-	}
-
 	public void setBrand(String brand) {
 		this.brand = brand;
-	}
-
-	public String getModel() {
-		return model;
 	}
 
 	public void setModel(String model) {
 		this.model = model;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	public String getProcessor() {
-		return processor;
 	}
 
 	public void setProcessor(String processor) {
 		this.processor = processor;
 	}
 
-	public String getRam() {
-		return ram;
-	}
-
 	public void setRam(String ram) {
 		this.ram = ram;
-	}
-
-	public String getHdd() {
-		return hdd;
 	}
 
 	public void setHdd(String hdd) {
 		this.hdd = hdd;
 	}
 
-	public String getOs() {
-		return os;
-	}
-
 	public void setOs(String os) {
 		this.os = os;
-	}
-
-	public String getScreen() {
-		return screen;
 	}
 
 	public void setScreen(String screen) {
 		this.screen = screen;
 	}
 
-	public String getVideoCard() {
-		return videoCard;
-	}
-
 	public void setVideoCard(String videoCard) {
 		this.videoCard = videoCard;
-	}
-
-	public boolean isHasCamera() {
-		return hasCamera;
 	}
 
 	public void setHasCamera(boolean hasCamera) {
 		this.hasCamera = hasCamera;
 	}
 
-	public String getWirelessConectivity() {
-		return wirelessConectivity;
-	}
-
 	public void setWirelessConectivity(String wirelessConectivity) {
 		this.wirelessConectivity = wirelessConectivity;
-	}
-
-	public String getMediaRecording() {
-		return mediaRecording;
 	}
 
 	public void setMediaRecording(String mediaRecording) {
 		this.mediaRecording = mediaRecording;
 	}
 
-	public String getMediaCardReading() {
-		return mediaCardReading;
-	}
-
 	public void setMediaCardReading(String mediaCardReading) {
 		this.mediaCardReading = mediaCardReading;
-	}
-
-	public String getOtherFeatures() {
-		return otherFeatures;
 	}
 
 	public void setOtherFeatures(String otherFeatures) {
 		this.otherFeatures = otherFeatures;
 	}
 	
+	private long id;
+	private double price;
+	private int stock;
 	private String brand;
 	private String model;
 	private String color;

@@ -1,6 +1,6 @@
 package models;
 
-public class Smartphone extends Product {
+public class Smartphone implements Product {
 	
 	public Smartphone() {
 	}
@@ -81,10 +81,10 @@ public class Smartphone extends Product {
 	public String toString() {
 		return this.getName();
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public double getPrice() {
@@ -232,6 +232,9 @@ public class Smartphone extends Product {
 		this.flashcapable = flashcapable;
 	}
 	
+	private long id;
+	private double price;
+	private int stock;
 	private String brand;
 	private String model;
 	private String name;
