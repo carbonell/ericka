@@ -32,7 +32,17 @@ public class HbnPersistanceSessionManager {
 
 		try {
 			Configuration cfg = new Configuration()
+				.addAnnotatedClass(models.Address.class)
+				.addAnnotatedClass(models.City.class)
+				.addAnnotatedClass(models.Country.class)
+				.addAnnotatedClass(models.Customer.class)
 				.addAnnotatedClass(models.Laptop.class)
+				.addAnnotatedClass(models.Product.class)
+				.addAnnotatedClass(models.ProductPurchase.class)
+				.addAnnotatedClass(models.Province.class)
+				.addAnnotatedClass(models.Smartphone.class)
+				.addAnnotatedClass(models.Supplier.class)
+				.addAnnotatedClass(models.Technician.class)
 				.configure();
 			
 			serviceRegistry = new ServiceRegistryBuilder()

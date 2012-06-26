@@ -3,8 +3,18 @@ package controllers;
 import models.Smartphone;
 
 public class SmartphoneController {
-	HbnPersistanceSessionManager pm = HbnPersistanceSessionManager.getInstance();
+	private HbnPersistanceSessionManager pm = HbnPersistanceSessionManager.getInstance();
 
+	public Smartphone getSingleSmartphone (long id) {
+		Smartphone s = new Smartphone();
+		try {
+			s = (Smartphone) pm.getSessionInstance().load(Smartphone.class, id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return s;
+	}
+	
 	public void saveSmartphone(Smartphone smartphone) {
 		try {
 			pm.getSessionInstance().save(smartphone);

@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="customer")
 public class Customer {
 	
 	public Customer() {
@@ -29,49 +33,65 @@ public class Customer {
 		this.address = address;
 	}
 
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
+	@Column
 	public String getFirstName() {
 		return firstName;
+	}
+
+	@Column
+	public String getFirstMidName() {
+		return firstMidName;
+	}
+
+	@Column
+	public String getLastName() {
+		return lastName;
+	}
+
+	@Column
+	public String getPhone() {
+		return phone;
+	}
+
+	@Column
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
+	@JoinColumn(name="address")
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getFirstMidName() {
-		return firstMidName;
-	}
 	public void setFirstMidName(String firstMidName) {
 		this.firstMidName = firstMidName;
-	}
-	public String getLastName() {
-		return lastName;
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getPhone() {
-		return phone;
-	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getCellphone() {
-		return cellphone;
 	}
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
 	}
-	public Address getAddress() {
-		return address;
-	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
+
 	private int id;
 	private String firstName;
 	private String firstMidName;

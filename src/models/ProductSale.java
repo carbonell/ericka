@@ -1,6 +1,6 @@
 package models;
 
-import java.util.ArrayList;
+import java.util.Set;
 import java.util.Date;
 
 public class ProductSale {
@@ -23,15 +23,15 @@ public class ProductSale {
 	public void setSaleDate(Date saleDate) {
 		this.saleDate = saleDate;
 	}
-	public ArrayList<Product> getSaleProducts() {
+	public Set<Product> getSaleProducts() {
 		return saleProducts;
 	}
-	public void setSaleProducts(ArrayList<Product> saleProducts) {
+	public void setSaleProducts(Set<Product> saleProducts) {
 		this.saleProducts = saleProducts;
 	}
 	
 	private int id;
 	private Customer customer;
 	private Date saleDate;
-	private ArrayList<Product> saleProducts;
+	private Set<Product> saleProducts;
 }

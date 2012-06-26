@@ -1,10 +1,20 @@
 package models;
 
-public interface Product {	
+import javax.persistence.*;
+
+@Entity
+public interface Product {
+	@Id
+	@GeneratedValue
 	public long getId();
-	public void setId(long id);
+	
+	@Column(name="price")
 	public double getPrice();
-	public void setPrice(double price);
+	
+	@Column(name="stock")
 	public int getStock();
+	
+	public void setId(long id);
+	public void setPrice(double price);
 	public void setStock(int stock);
 }

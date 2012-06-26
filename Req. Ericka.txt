@@ -44,4 +44,5 @@ Para Investigar:
 
 	Transacciones contables del diario general
 	Procesamiento de Devoluciones
-	Cuadre de caja	
+	Cuadre de caja
+	Catálogo de Guías y Herramientas para Reparación por Smartphone

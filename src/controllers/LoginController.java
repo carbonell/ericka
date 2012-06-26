@@ -36,15 +36,16 @@ public class LoginController {
 	private boolean validarLogin(String user, char[] password) {
 		boolean valid = true;
 		
-//		for(Technician t : technicianController.getTechnicians()) {
-//			if(user.equals(t.getNickName())) {
-//				int index = 0;
-//				for(char i : password){
-//					if(i != t.getPassword().toCharArray()[index]) { valid = false; }
-//					index++;
-//				}
-//			}
-//		}
+		/*
+		for(Technician t : technicianController.getTechnicians()) {
+			if(user.equals(t.getNickName())) {
+				int index = 0;
+				for(char i : password){
+					if(i != t.getPassword().toCharArray()[index]) { valid = false; }
+					index++;
+				}
+			}
+		}*/
 		return valid;
 	}
 	

@@ -1,18 +1,32 @@
 package controllers;
 
-import models.Laptop;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+
+import models.*;
 
 public class Start {
 	public static void main(String[] args) {
-		LaptopController lc = new LaptopController();
 		
-		Laptop laptop = new Laptop(27500.0,4,"DELL","Inspiron 1545","Black","Intel Pentium 4 Dual Core 2.4GHz","2.00 GB DDR2",
-				"160.0 GB HDD","Windows 7 Ultimate","15.4\" 1920x1200 Res.","NVIDIA Quadro™ FX Go1400",true,
-				"Intel PRO/Wireless 2200 802.11b/g, 54Mbps; Dell Wireless 1370 802.11b/g; Dell Wireless 1470 802.11a/b/g",
-				"CD-RW/DVD Combo;","-","-");
+		AddressController ac = new AddressController();
 		
-		lc.saveLaptop(laptop);
+		City ci = ac.getSingleCity(11);
+		Province pro = ac.getSingleProvince(31);
+		Country coun = ac.getSingleCountry(163);
 		
-		//Laptop z = lc.getSingleLaptop(4);
+		Address a = new Address("Calle X", coun, pro, ci);
+		
+		a.toString();
+		
+		Set<Product> products = new HashSet<Product>();
+		
+		products.add(new Smartphone());
+		
+		ProductPurchase pp = new ProductPurchase(
+				new Supplier("SM Pieces", "Alvin", a, "(809)231-8453", "(829)578-9885"),
+				Calendar.getInstance().getTime(),
+				products
+		);
 	}
 }

@@ -26,7 +26,7 @@ public class Laptop implements Product {
 		this.os = os;
 		this.screen = screen;
 		this.videoCard = videoCard;
-		this.hasCamera = hasCamera;
+		this.builtInCamera = hasCamera;
 		this.wirelessConectivity = wirelessConectivity;
 		this.mediaRecording = mediaRecording;
 		this.mediaCardReading = mediaCardReading;
@@ -50,7 +50,7 @@ public class Laptop implements Product {
 		this.os = os;
 		this.screen = screen;
 		this.videoCard = videoCard;
-		this.hasCamera = hasCamera;
+		this.builtInCamera = hasCamera;
 		this.wirelessConectivity = wirelessConectivity;
 		this.mediaRecording = mediaRecording;
 		this.mediaCardReading = mediaCardReading;
@@ -118,9 +118,9 @@ public class Laptop implements Product {
 		return videoCard;
 	}
 
-	@Column(name="builtincamera")
-	public boolean isHasCamera() {
-		return hasCamera;
+	@Column
+	public boolean isBuiltInCamera() {
+		return builtInCamera;
 	}
 
 	@Column
@@ -191,8 +191,8 @@ public class Laptop implements Product {
 		this.videoCard = videoCard;
 	}
 
-	public void setHasCamera(boolean hasCamera) {
-		this.hasCamera = hasCamera;
+	public void setBuiltInCamera(boolean builtInCamera) {
+		this.builtInCamera = builtInCamera;
 	}
 
 	public void setWirelessConectivity(String wirelessConectivity) {
@@ -223,7 +223,7 @@ public class Laptop implements Product {
 	private String os;
 	private String screen;
 	private String videoCard;
-	private boolean hasCamera;
+	private boolean builtInCamera;
 	private String wirelessConectivity;
 	private String mediaRecording;
 	private String mediaCardReading;

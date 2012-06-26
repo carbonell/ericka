@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="supplier")
 public class Supplier {
 	
 	public Supplier() {
@@ -26,44 +30,58 @@ public class Supplier {
 		this.phone = phone;
 		this.cellphone = cellphone;
 	}
-
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
+	@Column
 	public String getName() {
 		return name;
 	}
-	public void setName(String agentName) {
-		this.agentName = agentName;
-	}	
+
+	@Column
 	public String getAgentName() {
-		return this.agentName;
+		return agentName;
 	}
-	public void setAgentName(String name) {
-		this.name = name;
-	}
+
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
+	@JoinColumn(name="address")
 	public Address getAddress() {
 		return address;
+	}
+
+	@Column
+	public String getPhone() {
+		return phone;
+	}
+
+	@Column
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public String getPhone() {
-		return phone;
-	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getCellphone() {
-		return cellphone;
 	}
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
 	}
-	
+
 	private int id;
 	private String name;
 	private String agentName;

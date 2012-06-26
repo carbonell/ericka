@@ -3,7 +3,7 @@ package controllers;
 import models.Laptop;
 
 public class LaptopController {
-	HbnPersistanceSessionManager pm = HbnPersistanceSessionManager.getInstance();
+	private HbnPersistanceSessionManager pm = HbnPersistanceSessionManager.getInstance();
 	
 	public Laptop getSingleLaptop (long id) {
 		Laptop l = new Laptop();

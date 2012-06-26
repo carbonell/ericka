@@ -1,15 +1,19 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="productpurchase")
 public class ProductPurchase {
 	
 	public ProductPurchase() {
 	}
 	
 	public ProductPurchase(int id, Supplier supplier, Date purchaseDate,
-			ArrayList<Product> products) {
+			Set<Product> products) {
 		super();
 		this.id = id;
 		this.supplier = supplier;
@@ -18,7 +22,7 @@ public class ProductPurchase {
 	}
 
 	public ProductPurchase(Supplier supplier, Date purchaseDate,
-			ArrayList<Product> products) {
+			Set<Product> products) {
 		super();
 		this.id = 0;
 		this.supplier = supplier;
@@ -26,33 +30,43 @@ public class ProductPurchase {
 		this.products = products;
 	}
 	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
+	@ManyToOne
+	@JoinColumn(name="supplier")
 	public Supplier getSupplier() {
 		return supplier;
+	}
+
+	@Column(name="date")
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-	public Date getPurchaseDate() {
-		return purchaseDate;
-	}
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
-	public ArrayList<Product> getProducts() {
-		return products;
-	}
-	public void setProducts(ArrayList<Product> products) {
+	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
-	
+
 	private int id;
 	private Supplier supplier;
 	private Date purchaseDate;
-	private ArrayList<Product> products;
+	private Set<Product> products;
 }

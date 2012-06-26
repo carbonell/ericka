@@ -1,11 +1,15 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="smartphone")
 public class Smartphone implements Product {
 	
 	public Smartphone() {
 	}
 	
-	public Smartphone(int id, double price, int stock, String brand, String model, String name, String color,
+	public Smartphone(long id, double price, int stock, String brand, String model, String name, String color,
 			String storagecapacity, String networkstandards,
 			String screenwidth, String screenheight, String camera,
 			String videorecording, String operativesystem, String osversion,
@@ -81,157 +85,233 @@ public class Smartphone implements Product {
 	public String toString() {
 		return this.getName();
 	}
+	
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
+
+	@Column
 	public double getPrice() {
-		return this.price;
+		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
+
+	@Column
 	public int getStock() {
-		return this.stock;
+		return stock;
 	}
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+
+	@Column
 	public String getBrand() {
 		return brand;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+
+	@Column
 	public String getModel() {
 		return model;
 	}
-	public void setModel(String model) {
-		this.model = model;
-	}
+
+	@Column
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
+	@Column
 	public String getColor() {
 		return color;
 	}
-	public void setColor(String color) {
-		this.color = color;
-	}
+
+	@Column
 	public String getStoragecapacity() {
 		return storagecapacity;
 	}
-	public void setStoragecapacity(String storagecapacity) {
-		this.storagecapacity = storagecapacity;
-	}
+
+	@Column
 	public String getNetworkstandards() {
 		return networkstandards;
 	}
-	public void setNetworkstandards(String networkstandards) {
-		this.networkstandards = networkstandards;
-	}
+
+	@Column
 	public String getScreenwidth() {
 		return screenwidth;
 	}
-	public void setScreenwidth(String screenwidth) {
-		this.screenwidth = screenwidth;
-	}
+
+	@Column
 	public String getScreenheight() {
 		return screenheight;
 	}
-	public void setScreenheight(String screenheight) {
-		this.screenheight = screenheight;
-	}
+
+	@Column
 	public String getCamera() {
 		return camera;
 	}
-	public void setCamera(String camera) {
-		this.camera = camera;
-	}
+
+	@Column
 	public String getVideorecording() {
 		return videorecording;
 	}
-	public void setVideorecording(String videorecording) {
-		this.videorecording = videorecording;
-	}
+
+	@Column
 	public String getOperativesystem() {
 		return operativesystem;
 	}
-	public void setOperativesystem(String operativesystem) {
-		this.operativesystem = operativesystem;
-	}
+
+	@Column
 	public String getOsversion() {
 		return osversion;
 	}
-	public void setOsversion(String osversion) {
-		this.osversion = osversion;
-	}
+
+	@Column
 	public String getProcessor() {
 		return processor;
 	}
-	public void setProcessor(String processor) {
-		this.processor = processor;
-	}
+
+	@Column
 	public String getRam() {
 		return ram;
 	}
-	public void setRam(String ram) {
-		this.ram = ram;
-	}
+
+	@Column
 	public String getOtherfeatures() {
 		return otherfeatures;
 	}
-	public void setOtherfeatures(String otherfeatures) {
-		this.otherfeatures = otherfeatures;
-	}
+
+	@Column(name="TouchCapability")
 	public boolean isTouchcapable() {
 		return touchcapable;
 	}
-	public void setTouchcapable(boolean touchcapable) {
-		this.touchcapable = touchcapable;
-	}
+
+	@Column(name="GPSCapability")
 	public boolean isGpscapable() {
 		return gpscapable;
 	}
-	public void setGpscapable(boolean gpscapable) {
-		this.gpscapable = gpscapable;
-	}
+
+	@Column(name="WiFiCapability")
 	public boolean isWificapable() {
 		return wificapable;
 	}
-	public void setWificapable(boolean wificapable) {
-		this.wificapable = wificapable;
-	}
+
+	@Column(name="BluetoothCapability")
 	public boolean isBluetoothcapable() {
 		return bluetoothcapable;
 	}
-	public void setBluetoothcapable(boolean bluetoothcapable) {
-		this.bluetoothcapable = bluetoothcapable;
-	}
+
+	@Column(name="InfraredCapability")
 	public boolean isInfraredcapable() {
 		return infraredcapable;
 	}
-	public void setInfraredcapable(boolean infraredcapable) {
-		this.infraredcapable = infraredcapable;
-	}
+
+	@Column
 	public boolean isQwertykeyboard() {
 		return qwertykeyboard;
 	}
-	public void setQwertykeyboard(boolean qwertykeyboard) {
-		this.qwertykeyboard = qwertykeyboard;
-	}
+
+	@Column(name="FlashCapability")
 	public boolean isFlashcapable() {
 		return flashcapable;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setStoragecapacity(String storagecapacity) {
+		this.storagecapacity = storagecapacity;
+	}
+
+	public void setNetworkstandards(String networkstandards) {
+		this.networkstandards = networkstandards;
+	}
+
+	public void setScreenwidth(String screenwidth) {
+		this.screenwidth = screenwidth;
+	}
+
+	public void setScreenheight(String screenheight) {
+		this.screenheight = screenheight;
+	}
+
+	public void setCamera(String camera) {
+		this.camera = camera;
+	}
+
+	public void setVideorecording(String videorecording) {
+		this.videorecording = videorecording;
+	}
+
+	public void setOperativesystem(String operativesystem) {
+		this.operativesystem = operativesystem;
+	}
+
+	public void setOsversion(String osversion) {
+		this.osversion = osversion;
+	}
+
+	public void setProcessor(String processor) {
+		this.processor = processor;
+	}
+
+	public void setRam(String ram) {
+		this.ram = ram;
+	}
+
+	public void setOtherfeatures(String otherfeatures) {
+		this.otherfeatures = otherfeatures;
+	}
+
+	public void setTouchcapable(boolean touchcapable) {
+		this.touchcapable = touchcapable;
+	}
+
+	public void setGpscapable(boolean gpscapable) {
+		this.gpscapable = gpscapable;
+	}
+
+	public void setWificapable(boolean wificapable) {
+		this.wificapable = wificapable;
+	}
+
+	public void setBluetoothcapable(boolean bluetoothcapable) {
+		this.bluetoothcapable = bluetoothcapable;
+	}
+
+	public void setInfraredcapable(boolean infraredcapable) {
+		this.infraredcapable = infraredcapable;
+	}
+
+	public void setQwertykeyboard(boolean qwertykeyboard) {
+		this.qwertykeyboard = qwertykeyboard;
+	}
+
 	public void setFlashcapable(boolean flashcapable) {
 		this.flashcapable = flashcapable;
 	}
-	
+
 	private long id;
 	private double price;
 	private int stock;
